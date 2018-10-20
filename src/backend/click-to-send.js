@@ -24,13 +24,15 @@ module.exports = async function clickToSend() {
     await awaitFor();
 
     type = 'ws-success';
-    document.querySelectorAll('footer button')[1].click();
+    const x =  document.querySelectorAll('footer button span[data-icon=\"send\"]')[0].parentNode;
+	x.addEventListener('click', function(){
+		setTimeout(() => {
+			window.chrome.runtime.sendMessage({ type });
+			window.close();
+		}, 500);
+	});
+	x.click(); 
   } catch (e) {
     type = 'ws-invalid';
   }
-
-  setTimeout(() => {
-    window.chrome.runtime.sendMessage({ type });
-    window.close();
-  }, 200);
 }

@@ -36,7 +36,7 @@ export default {
     return {
       name: '',
       phones: '',
-      country: 55,
+      country: 852,
       file: null,
       tableHeader: [
         { text: 'Country', value: 'country', sortable: false },
@@ -51,8 +51,8 @@ export default {
   computed: {
     countries() {
       return [{
-        text: 'Brazil (+55)',
-        value: '55',
+        text: 'Hong Kong (+852)',
+        value: '852',
       }];
     },
 

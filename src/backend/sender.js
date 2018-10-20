@@ -33,8 +33,8 @@ module.exports = class Sender {
   }
 
   openBrowser(phone, message) {
-    const queryParam = encodeURI(`phone=${phone}&text=${message}`);
-    link.href = `${WHATSAPP_URL}?${queryParam}`;
+    const queryParam = encodeURIComponent(`${message}`);
+    link.href = `${WHATSAPP_URL}?phone=${phone}&text=${queryParam}`;
     link.click();
   }
 }
